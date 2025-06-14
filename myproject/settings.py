@@ -1,15 +1,12 @@
 import os
 from pathlib import Path
 
-# Базовая директория
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Безопасность
 SECRET_KEY = 'замени-на-секретный-ключ'
 DEBUG = True
 ALLOWED_HOSTS = []
 
-# Приложения
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -17,10 +14,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'firstproject',  # наше приложение
+    'firstproject',
 ]
 
-# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -33,7 +29,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'myproject.urls'
 
-# Шаблоны
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -52,7 +47,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# База данных (по умолчанию SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -60,7 +54,6 @@ DATABASES = {
     }
 }
 
-# Пароли
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -76,13 +69,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Локализация
 LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
 
-# Статические файлы
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

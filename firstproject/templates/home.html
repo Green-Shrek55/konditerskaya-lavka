@@ -1,6 +1,13 @@
-{% extends "base.html" %}
-{% block title %}Главная | Кондитерская лавка{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Добро пожаловать в нашу Кондитерскую лавку!</h1>
-<p>Лучшие десерты — здесь. Заказывайте онлайн с доставкой на дом!</p>
+    <h2>Добро пожаловать в нашу кондитерскую лавку!</h2>
+    <p>Свежие сладости, быстрые заказы и индивидуальные торты под заказ.</p>
 {% endblock %}

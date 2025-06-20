@@ -10,7 +10,7 @@ ALLOWED_HOSTS = []
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'firstproject', 'static'),
+    BASE_DIR / 'firstproject' / 'static',
 ]
 
 INSTALLED_APPS = [

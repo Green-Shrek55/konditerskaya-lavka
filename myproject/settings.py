@@ -13,6 +13,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'firstproject' / 'static',
 ]
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -21,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'firstproject',
+    'shop',
 ]
 
 MIDDLEWARE = [

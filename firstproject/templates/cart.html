@@ -1,7 +1,17 @@
-{% extends "base.html" %}
-{% block title %}Корзина покупателя{% endblock %}
+{% extends 'base.html' %}
 {% block content %}
-<h1>Корзина</h1>
-<p>Ваша корзина пока пуста.</p>
-<p>Выберите товар в каталоге, чтобы добавить его в корзину.</p>
+  <h2>Корзина</h2>
+  {% if cart %}
+    <ul>
+      {% for item in cart %}
+        <li>
+          {{ item.product.name }} — {{ item.quantity }} × {{ item.price }} = {{ item.total_price }}
+          <a href="{% url 'cart_remove' item.product.id %}">Удалить</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <p><strong>Итого: {{ cart.get_total_price }}</strong></p>
+  {% else %}
+    <p>Корзина пуста.</p>
+  {% endif %}
 {% endblock %}

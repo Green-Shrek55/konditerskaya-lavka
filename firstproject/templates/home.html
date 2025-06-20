@@ -10,4 +10,8 @@
 {% block content %}
     <h2>Добро пожаловать в нашу кондитерскую лавку!</h2>
     <p>Свежие сладости, быстрые заказы и индивидуальные торты под заказ.</p>
+
+    <div class="go-to-products">
+        <a class="btn-products" href="{% url 'product_list' %}">Перейти к товарам</a>
+    </div>
 {% endblock %}

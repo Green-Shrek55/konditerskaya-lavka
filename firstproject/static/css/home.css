@@ -6,3 +6,17 @@ p {
     font-size: 18px;
     line-height: 1.6;
 }
+
+.btn-products {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c46cc2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-products:hover {
+    background-color: #a84fa4;
+}

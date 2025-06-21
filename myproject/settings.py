@@ -7,6 +7,9 @@ SECRET_KEY = 'замени-на-секретный-ключ'
 DEBUG = True
 ALLOWED_HOSTS = []
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
@@ -25,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'firstproject',
     'shop',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [

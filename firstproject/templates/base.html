@@ -16,7 +16,14 @@
                 <li><a href="{% url 'product_list' %}">Полный каталог продукции</a></li>
                 {% if user.is_authenticated %}
                     <li>Привет, {{ user.username }}!</li>
-                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" style="background:none; border:none; padding:0; color:inherit; cursor:pointer;">
+                                Выйти
+                            </button>
+                        </form>
+                    </li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Войти</a></li>
                     <li><a href="{% url 'register' %}">Регистрация</a></li>

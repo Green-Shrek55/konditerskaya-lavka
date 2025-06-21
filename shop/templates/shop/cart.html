@@ -1,30 +1,40 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block title %}Корзина{% endblock %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/cart.css' %}">
-{% endblock %}
 
 {% block content %}
 <h2>Ваша корзина</h2>
 
-{% if items %}
-    <ul>
-        {% for item in items %}
-            <li>
-                {{ item.product.name }} — {{ item.quantity }} шт. — {{ item.subtotal }} ₽
-                <form method="post" action="{% url 'remove_from_cart' item.product.id %}" style="display:inline;">
-                    {% csrf_token %}
-                    <button type="submit">Удалить</button>
-                </form>
-            </li>
+{% if cart_items %}
+<table>
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Сумма</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product.price }} ₽</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.product.price|floatformat:2|add:""|add:item.quantity|floatformat:2 }} ₽</td>
+            <td>
+                <a href="{% url 'remove_from_cart' item.product.id %}">Удалить</a>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
-    <p><strong>Итого: {{ total }} ₽</strong></p>
-    <a href="{% url 'checkout' %}" class="button">Оформить заказ</a>
+    </tbody>
+</table>
+<p><strong>Итого: {{ total }} ₽</strong></p>
+<form method="post" action="{% url 'create_order' %}">
+    {% csrf_token %}
+    <button type="submit">Оформить заказ</button>
+</form>
 {% else %}
-    <p>Корзина пуста.</p>
+<p>Ваша корзина пуста.</p>
 {% endif %}
 {% endblock %}
